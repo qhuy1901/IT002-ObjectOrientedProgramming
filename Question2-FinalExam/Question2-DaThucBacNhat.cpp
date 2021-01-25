@@ -7,7 +7,7 @@ class DTBacNhat
         float a, b;
     public:
         DTBacNhat();
-        DTBacNhat(float, float); // Tạo cái này đê test thôi
+        DTBacNhat(float, float);
         void F(float);
         float TinhNghiem();
         DTBacNhat operator+(const DTBacNhat&);
