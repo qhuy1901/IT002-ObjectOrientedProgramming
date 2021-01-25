@@ -72,7 +72,7 @@ class KhuCachLy
 {
     protected:
         // Bỏ qua tên, địa chỉ, SLNV
-        NguoiNhapCanh* DS[100];
+        NguoiNhapCanh* DanhSachNNC[100];
         int SucChua;
         int TongNguoi;
         float KhoangCachDenCuaKhau;
@@ -91,10 +91,10 @@ float KhuCachLy::TinhTongXSLayBenh()
     for(int i =0;i<TongNguoi;i++)
     {
         float XSLayBenh;
-        if(DS[i]->LayNgayNC() - DefDay >= 0)
-            XSLayBenh = DS[i]->LayXSBenh() + DS[i]->LayXSBenh() * HeSoVeKhoangCach * 0.02;
+        if(DanhSachNNC[i]->LayNgayNC() - DefDay >= 0)
+            XSLayBenh = DanhSachNNC[i]->LayXSBenh() + DanhSachNNC[i]->LayXSBenh() * HeSoVeKhoangCach * 0.02;
         else
-            XSLayBenh = DS[i]->LayXSBenh() + DS[i]->LayXSBenh() * HeSoVeKhoangCach * 0.01;
+            XSLayBenh = DanhSachNNC[i]->LayXSBenh() + DanhSachNNC[i]->LayXSBenh() * HeSoVeKhoangCach * 0.01;
         TongXS += XSLayBenh;
     }
     return TongXS;
@@ -105,7 +105,7 @@ int KhuCachLy::TinhSoLuongNguoiConCachLy(const date& CheckDate)
     int SoNguoiConCachLy = 0;
     for(int i =0;i<TongNguoi;i++)
     {
-        if (DS[i]->KtThoiGianCachLy(CheckDate) == 0)
+        if (DanhSachNNC[i]->KtThoiGianCachLy(CheckDate) == 0)
             SoNguoiConCachLy++;
     }
     return SoNguoiConCachLy;
@@ -145,13 +145,13 @@ void TapTrung::Nhap()
         switch (chon)
         {
             case 1:
-                DS[i] = new VietNam;
+                DanhSachNNC[i] = new VietNam;
                 break;
             case 2:
-                DS[i] = new NuocNgoai;
+                DanhSachNNC[i] = new NuocNgoai;
                 break;
         }
-        DS[i]->Nhap();
+        DanhSachNNC[i]->Nhap();
     }
 }
 
@@ -168,15 +168,15 @@ void TuNguyen::Nhap()
     for (int i = 0; i < TongNguoi; i++)
     {
         cout << "+Nhap thong tin nguoi thu " << i + 1 << endl;
-        DS[i] = new NuocNgoai;
-        DS[i]->Nhap();
+        DanhSachNNC[i] = new NuocNgoai;
+        DanhSachNNC[i]->Nhap();
     }
 }
 
 
 int main()
 {
-    KhuCachLy* DSKCL[100];
+    KhuCachLy* DanhSachKCL[100];
     cout << "Nhap so luong khu cach ly: ";
     int nKCL;
     cin >> nKCL;
@@ -189,13 +189,13 @@ int main()
         cin >> chon;
         switch (chon)
         {
-            case 1: DSKCL[i] = new TapTrung;
+            case 1: DanhSachKCL[i] = new TapTrung;
                 break;
-            case 2: DSKCL[i] = new TuNguyen;
+            case 2: DanhSachKCL[i] = new TuNguyen;
                 break;
         }
-        DSKCL[i]->Nhap();
-        SoNguoiNhapCanh += DSKCL[i]->LayTongNguoi();
+        DanhSachKCL[i]->Nhap();
+        SoNguoiNhapCanh += DanhSachKCL[i]->LayTongNguoi();
     }
     cout << "\nSo luong nguoi nhap canh vao Viet Nam: " << SoNguoiNhapCanh << endl;
 
@@ -205,13 +205,13 @@ int main()
     date CheckDate;
     cin >> CheckDate;
     for (int i = 0; i < nKCL; i++)
-        cout << "\nSo nguoi con trong khu cach ly thu " << i + 1 << ": " << DSKCL[i]->TinhSoLuongNguoiConCachLy(CheckDate);
+        cout << "\nSo nguoi con trong khu cach ly thu " << i + 1 << ": " << DanhSachKCL[i]->TinhSoLuongNguoiConCachLy(CheckDate);
 
     //Câu 3
     int index;
     cout << "\n\nChon khu cach ly can tinh xac suat: ";
     cin >> index;
-    float XacSuatTB = DSKCL[index]->TinhTongXSLayBenh() / DSKCL[index]->LayTongNguoi();
+    float XacSuatTB = DanhSachKCL[index]->TinhTongXSLayBenh() / DanhSachKCL[index]->LayTongNguoi();
     cout << "Xac suat lay benh TB cua khu cach ly " << index + 1 << " la: " << XacSuatTB;
     return 0;
 }
