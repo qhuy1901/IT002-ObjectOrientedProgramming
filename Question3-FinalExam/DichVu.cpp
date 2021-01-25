@@ -149,34 +149,33 @@ int KhachHang::TinhTongChiPhi()
 
 int main()
 {
-    KhachHang DS[100];
+    KhachHang DanhSachKH[100];
     cout << "Nhap so luong khach hang can quan ly: ";
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
         cout << "\nNHAP THONG TIN KHACH HANG THU " << i + 1 << endl;
-        DS[i].Nhap();
+        DanhSachKH[i].Nhap();
     }
 
     cout << endl;
     for (int i = 0; i < n; i++)
-        DS[i].Xuat();
+        DanhSachKH[i].Xuat();
 
-    int max = DS[0].TinhTongChiPhi();
+    int max = DanhSachKH[0].TinhTongChiPhi();
     for (int i = 1; i < n; i++)
-        if (DS[i].TinhTongChiPhi() > max)
-            max = DS[i].TinhTongChiPhi();
+        if (DanhSachKH[i].TinhTongChiPhi() > max)
+            max = DanhSachKH[i].TinhTongChiPhi();
 
     cout << "\n\nThong tin cac khach hang da chi tieu nhieu nhat la: " << endl;
     for (int i = 0; i < n; i++)
     {
-        if (DS[i].TinhTongChiPhi() == max)
+        if (DanhSachKH[i].TinhTongChiPhi() == max)
         {
-            DS[i].Xuat();
+            DanhSachKH[i].Xuat();
             cout << endl;
         }
-
     }
     return 0;
 }
