@@ -195,25 +195,25 @@ YeuTo* Nguoi::LayYeuTo(int i)
 
 int main()
 {
-    Nguoi DS[100];
+    Nguoi DanhSach[100];
     int n;
     cout << "Nhap so nguoi can danh gia tam ly: ";
     cin >> n;
     for (int i = 0; i < n; i++)
     {
         cout << "\nNhap thong tin nguoi thu " << i + 1 << endl;
-        DS[i].Nhap();
+        DanhSach[i].Nhap();
     }
 
     cout << "\nChon nguoi can xuat thong tin: ";
     int chon;
     cin >> chon;
-    DS[chon].TinhCach();
+    DanhSach[chon].TinhCach();
 
     cout << "\nVi tri nhung nguoi co nguy co cao ma nha tuyen dung can luu y: " << endl;
     for (int i = 0; i < n; i++)
     {
-        if (DS[i].LayYeuTo(1)->LayChiSo() < 30 || DS[i].LayYeuTo(4)->LayChiSo() > 70 || DS[i].LayYeuTo(2)->LayChiSo() < 30)
+        if (DanhSach[i].LayYeuTo(1)->LayChiSo() < 30 || DanhSach[i].LayYeuTo(4)->LayChiSo() > 70 || DanhSach[i].LayYeuTo(2)->LayChiSo() < 30)
             cout << i + 1 << " ";
     }
     return 0;
