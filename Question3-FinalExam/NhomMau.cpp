@@ -19,18 +19,22 @@ void NhomMau::Nhap()
     cout << "Chon 0. Rh-, 1. Rh+: ";
     cin >> Rh;
 }
+
 int NhomMau::LayNhomMau()
 {
     return Nhom;
 }
+
 int NhomMau::LayRh()
 {
     return Rh;
 }
+
 bool NhomMau::KtQuyLuatDiTruyen(int Cha, int Me)
 {
     return false;
 }
+
 bool NhomMau::KtViecNhanMau(int TenMau, int LoaiRh)
 {
     if (Rh == 1) //Rh+ có thể nhận Rh+ và Rh-
@@ -126,6 +130,7 @@ void AB::Nhap()
     Nhom = 3;
     NhomMau::Nhap();
 }
+
 bool AB::KtQuyLuatDiTruyen(int Cha, int Me)
 {
     if (Cha == 4 || Me == 4)
@@ -175,7 +180,7 @@ bool O::KtViecNhanMau(int TenMau, int LoaiRh)
 
 void main()
 {
-    NhomMau* DS[100];
+    NhomMau* DanhSach[100];
     cout << "Nhap so nguoi: ";
     int n;
     cin >> n;
@@ -187,24 +192,24 @@ void main()
         cin >> chon;
         switch (chon)
         {
-            case 1: DS[i] = new A;
+            case 1: DanhSach[i] = new A;
                 break;
-            case 2: DS[i] = new B;
+            case 2: DanhSach[i] = new B;
                 break;
-            case 3: DS[i] = new AB;
+            case 3: DanhSach[i] = new AB;
                 break;
-            case 4: DS[i] = new O;
+            case 4: DanhSach[i] = new O;
                 break;
         }
-        DS[i]->Nhap();
+        DanhSach[i]->Nhap();
     }
 
     cout << "Nhap vi tri nhom mau Cha, Me, Con: ";
     int cha, me, con;
     cin >> cha >> me >> con;
-    int MauCha = DS[cha]->LayNhomMau();
-    int MauMe = DS[me]->LayNhomMau();
-    if (DS[con]->KtQuyLuatDiTruyen(MauCha, MauMe) == true)
+    int MauCha = DanhSach[cha]->LayNhomMau();
+    int MauMe = DanhSach[me]->LayNhomMau();
+    if (DanhSach[con]->KtQuyLuatDiTruyen(MauCha, MauMe) == true)
         cout << "Bo 3 nhom mau dung QLDT." << endl;
     else 
         cout << "Bo 3 nhom mau khong dung QLDT." << endl;
@@ -213,11 +218,11 @@ void main()
     int index_X;
     cin >> index_X;
     cout << "Vi tri nhung nguoi co the cho mau nguoi X la: ";
-    for(int i = 0; i<n;i++)
+    for(int i = 0; i < n;i++)
     {
-        int MauNguoiCho = DS[i]->LayNhomMau();
-        int LoaiRh = DS[i]->LayRh();
-        if (DS[index_X]->KtViecNhanMau(MauNguoiCho, LoaiRh) == true)
+        int MauNguoiCho = DanhSach[i]->LayNhomMau();
+        int LoaiRh = DanhSach[i]->LayRh();
+        if (DanhSach[index_X]->KtViecNhanMau(MauNguoiCho, LoaiRh) == true)
             cout << i << " ";
     }
 }
