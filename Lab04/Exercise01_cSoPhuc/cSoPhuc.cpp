@@ -7,6 +7,7 @@ cSoPhuc::cSoPhuc()
     Thuc = 0;
     Ao = 0;
 }
+
 cSoPhuc::cSoPhuc(float t)
 {
     Thuc = t;
