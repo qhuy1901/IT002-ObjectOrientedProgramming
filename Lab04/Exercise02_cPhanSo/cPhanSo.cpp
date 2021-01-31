@@ -7,16 +7,19 @@ cPhanSo::cPhanSo()
     iTuSo = 1;
     iMauSo = 1;
 }
+
 cPhanSo::cPhanSo(int iTu, int iMau = 1)
 {
     iTuSo = iTu;
     iMauSo = iMau;
 }
+
 cPhanSo::cPhanSo(const cPhanSo& a)
 {
     iTuSo = a.iTuSo;
     iMauSo = a.iMauSo;
 }
+
 cPhanSo::~cPhanSo()
 {
     return;
