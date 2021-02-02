@@ -22,22 +22,22 @@ class GiaoThuong :public Cong
 
 class HocThuat :public Cong
 {
-private:
-    int TriTue;
-public:
-    void Nhap();
-    bool QuaCong(int&);
-    int LayLoaiCong() { return 2; }
+    private:
+        int TriTue;
+    public:
+        void Nhap();
+        bool QuaCong(int&);
+        int LayLoaiCong() { return 2; }
 };
 
 class SucManh :public Cong
 {
-private:
-    int SucManh;
-public:
-    void Nhap();
-    bool QuaCong(int&);
-    int LayLoaiCong() { return 3; }
+    private:
+        int SucManh;
+    public:
+        void Nhap();
+        bool QuaCong(int&);
+        int LayLoaiCong() { return 3; }
 };
 
 void GiaoThuong::Nhap()
@@ -147,4 +147,3 @@ int main()
         cout << "\nHoang tu ko cuu duoc Cong chua.";
     return 0;
 }
-
