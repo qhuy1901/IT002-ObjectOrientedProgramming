@@ -32,7 +32,7 @@ int DoiTuong::SatThuongNguHanh(DoiTuong* x)
 				STNguHanh += 0.1 * SatThuong;
 			break;
 	}
-	// Tương khắc
+	// 	Tương khắc
 	if (NguHanh- x->NguHanh == 1)
 		STNguHanh -= SatThuong * 0.2;
 	if (NguHanh - x->NguHanh == -1)
@@ -52,5 +52,3 @@ void DoiTuong::Nhap()
 void DoiTuong::TinhSatThuong()
 {
 }
-
-
