@@ -72,12 +72,11 @@ def isLeapYear(year):
 
 def numberDaysOfMonth(month, year):
     if month == 2:
-        if is_leap_year(year):
-            return 29
-        return 28
-    if month == 4 or month ==  6 or month == 9  or month == 11:
+        return 29 if isLeapYear(year) else 28
+    elif month == 4 or month ==  6 or month == 9  or month == 11:
         return 30
-    return 31  
+    else:
+        return 31  
 
 # === Main Program ====
 inputtedDate = Date(
